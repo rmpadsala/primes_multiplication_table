@@ -1,0 +1,25 @@
+require "spec_helper"
+
+describe "HalfN2Generate" do
+  describe ".instance_methods" do
+    before do
+      @object = Test::HalfN2Generate.new([])
+    end
+
+    it "should respond to instance_methods" do
+      expect(@object).to respond_to(:matrix)
+    end
+  end
+
+  describe ".matrix" do
+    before do
+      @object = Test::HalfN2Generate.new(
+        [2,3,5,7])
+    end
+
+    it "should return correct multiplication table" do
+      expected_matrix = [[4, 6, 10, 14], [9, 15, 21], [25, 35], [49]]
+      expect(@object.matrix).to eq(expected_matrix)
+    end
+  end
+end
