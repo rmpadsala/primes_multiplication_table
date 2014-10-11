@@ -15,12 +15,14 @@ module Test
       @matrix = []
     end
 
+    # returns 2d array of complete primes multiplication table matrix
     def matrix
       generate_recursive(0, @prime_ary.size-1)
       @matrix
     end
 
     private
+      # recursivesly generate array
       def generate_recursive(low, high)
         if (low >= high)
           generate_multiplication_table(low)

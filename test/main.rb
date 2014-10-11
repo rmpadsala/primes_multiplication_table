@@ -1,4 +1,4 @@
-# PrimesMultiplicationTable.new(options[:size]).render
+# main module to run program from CLI
 
 require 'optparse'
 require_relative "multiplication_table"

@@ -6,6 +6,7 @@ module Test
       @prime_ary = prime_ary
     end
 
+    # returns complete matrix multiplication 2d array
     def matrix
       @prime_ary.map.with_index { |x,i| @prime_ary.map.with_index { |y| x * y } }
     end

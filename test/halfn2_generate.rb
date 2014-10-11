@@ -9,6 +9,7 @@ module Test
       @prime_ary = prime_ary
     end
 
+    # returns 2d array of upper half of the primes multiplication table matrix
     def matrix
       twod_ary = []
       for i in 0...@prime_ary.size
