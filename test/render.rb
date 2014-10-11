@@ -1,3 +1,5 @@
+# render module to render matrix multiplication table
+
 module Test
   module Render
     def self.included(base)
@@ -8,11 +10,12 @@ module Test
       def draw(matrix, draw_mirror=false)
         raise "Invalid multiplication table" unless matrix.kind_of?(Array)
 
-        draw_mirror ? draw_mirror(matrix) : draw_full(matrix)
+        padding = (Integer(matrix.first.last ** 2)).to_s.size
+        draw_mirror ? draw_mirror(matrix, padding) : draw_full(matrix, padding)
       end
 
-      def draw_full(matrix)
-        padding = (Integer(matrix.first.last ** 2)).to_s.size
+      # render full matrix and return output as a string
+      def draw_full(matrix, padding)
         output = ""
         matrix.each_with_index do |row, row_index|
           output << row.collect.with_index {
@@ -23,9 +26,10 @@ module Test
         output
       end
 
-      def draw_mirror(matrix)
+      # method to first create lower half of matrix from upper half and then render full matrix
+      # returns output as a string
+      def draw_mirror(matrix, padding)
         padding = (Integer(matrix.first.last ** 2)).to_s.size
-        output = ""
         for row_index in 0...matrix.size
           temp_ary = []
           for col_index in 0...matrix.size
@@ -40,8 +44,7 @@ module Test
           matrix[row_index] = temp_ary
           row_index += 1
         end
-        # p matrix
-        draw_full(matrix)
+        draw_full(matrix, padding)
       end
     end
   end

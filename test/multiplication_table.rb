@@ -18,15 +18,15 @@ module Test
 
     def draw
       begin
-        # method - 1: Time Complexity O(N^2)
+        # # method - 1: Time Complexity O(N^2)
         # matrix = N2Generate.new(collect).matrix
         # print self.class.draw(matrix)
 
-        # method - 2: Time Complexity O(1/2 N^2)
+        # # method - 2: Time Complexity O(1/2 N^2)
         # matrix = HalfN2Generate.new(collect).matrix
         # print self.class.draw(matrix, true)
 
-        # method - 3: Recursive Time Complexity O(N^2 log N)
+        # # method - 3: Recursive Time Complexity O(N^2 log N)
         matrix = N2LognGenerate.new(collect).matrix
         print self.class.draw(matrix)
 
