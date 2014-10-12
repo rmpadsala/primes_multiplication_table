@@ -4,6 +4,9 @@ describe "Multiplication Table" do
   describe ".class_methods" do
     it "should respond to class_methods" do
       expect(Test::MultiplicationTable).to respond_to(:prime?)
+      expect(Test::MultiplicationTable).to respond_to(:collect)
+      expect(Test::MultiplicationTable).to respond_to(:next_prime)
+      expect(Test::MultiplicationTable).to respond_to(:draw)
     end
   end
 
@@ -14,10 +17,23 @@ describe "Multiplication Table" do
 
     it "should respond to instance_methods" do
       expect(@object).to respond_to(:no_of_primes)
+      expect(@object).to respond_to(:draw)
     end
 
     it "should default no_of_primes to 5" do
       expect(@object.no_of_primes).to equal(10)
+    end
+  end
+
+  describe ".draw" do
+    it "renders multiplication table" do
+      data = [
+        [1,  2,  3,  5],
+        [2,  4,  6, 10],
+        [3,  6,  9, 15],
+        [5, 10, 15, 25]]
+      expected_output = "  | 2| 3| 5\n 2| 4| 6|10\n 3| 6| 9|15\n 5|10|15|25\n"
+      expect(Test::MultiplicationTable.draw(data)).to eq expected_output
     end
   end
 
