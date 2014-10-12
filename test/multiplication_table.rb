@@ -24,7 +24,7 @@ module Test
 
         # # method - 2: Time Complexity O(1/2 N^2)
         # matrix = HalfN2Generate.new(collect).matrix
-        # print self.class.draw(matrix, true)
+        # print self.class.draw(matrix)
 
         # # method - 3: Recursive Time Complexity O(N^2 log N)
         matrix = N2LognGenerate.new(collect).matrix

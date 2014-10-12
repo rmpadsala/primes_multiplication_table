@@ -1,7 +1,5 @@
-# HalfN2Generate class generates only upper half of the multiplication table
-# lower half is rendered while drawing. Running time for this method is O(1/2 N^2)
-# Note: this method requires additional work while rendring as we have to generate
-# lower half while rending
+# HalfN2Generate class to generate primes multiplication table
+# Running time for this method is O(1/2 N^2)
 module Test
   class HalfN2Generate
 
@@ -9,15 +7,21 @@ module Test
       @prime_ary = prime_ary
     end
 
-    # returns 2d array of upper half of the primes multiplication table matrix
+    # returns 2d array of primes multiplication table matrix. While iterating
+    # Matrix lower half is constructed from the upper half.
     def matrix
       twod_ary = []
       for i in 0...@prime_ary.size
-        temp = []
+        # create row array
+        twod_ary[i] = Array.new if twod_ary[i].nil?
         for j in i...@prime_ary.size
-          temp << @prime_ary[i] * @prime_ary[j]
+          twod_ary[i] << @prime_ary[i] * @prime_ary[j]
+          if (j > i)
+            # create lower half of multiplication table
+            twod_ary[j] = Array.new if twod_ary[j].nil?
+            twod_ary[j] << @prime_ary[i] * @prime_ary[j]
+          end
         end
-        twod_ary << temp
       end
       twod_ary
     end

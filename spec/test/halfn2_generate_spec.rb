@@ -18,7 +18,7 @@ describe "HalfN2Generate" do
     end
 
     it "should return correct multiplication table" do
-      expected_matrix = [[4, 6, 10, 14], [9, 15, 21], [25, 35], [49]]
+      expected_matrix = [[4, 6, 10, 14], [6, 9, 15, 21], [10, 15, 25, 35], [14, 21, 35, 49]]
       expect(@object.matrix).to eq(expected_matrix)
     end
   end
